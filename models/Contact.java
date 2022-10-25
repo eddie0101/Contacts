@@ -18,6 +18,23 @@ public class Contact {
         this.age = toAge(birthDate);
     }
 
+    private void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setBirthDate(String birthDate) throws ParseException {
+        this.birthDate = birthDate;
+        setAge(toAge(birthDate));
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     private int toAge(String birthDate) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         formatter.getCalendar().setLenient(false);
@@ -31,6 +48,7 @@ public class Contact {
         return 
             "Name: " + name + "\n" +
             "Phone number: " + phoneNumber + "\n" +
-            "Birth date: " + birthDate + "\n";
+            "Birth date: " + birthDate + "\n" +
+            "Age: " + age + " year old\n";
     }
 }

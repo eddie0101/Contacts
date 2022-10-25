@@ -35,6 +35,22 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     private int toAge(String birthDate) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         formatter.getCalendar().setLenient(false);

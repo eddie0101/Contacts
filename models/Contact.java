@@ -18,6 +18,13 @@ public class Contact {
         this.age = toAge(birthDate);
     }
 
+    public Contact(Contact source) {
+        this.name = source.name;
+        this.phoneNumber = source.phoneNumber;
+        this.birthDate = source.birthDate;
+        this.age = source.age;
+    }
+
     private void setAge(int age) {
         this.age = age;
     }

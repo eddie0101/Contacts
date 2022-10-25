@@ -20,6 +20,7 @@ public class Contact {
 
     private int toAge(String birthDate) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        formatter.getCalendar().setLenient(false);
         Date toDate = formatter.parse(birthDate);
         long toMilli = toDate.getTime();
         long diff = new Date().getTime() - toMilli;

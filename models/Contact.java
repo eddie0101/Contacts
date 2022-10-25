@@ -26,4 +26,11 @@ public class Contact {
         long diff = new Date().getTime() - toMilli;
         return (int) (TimeUnit.MILLISECONDS.toDays(diff)) / 365;
     }
+
+    public String toString() {
+        return 
+            "Name: " + name + "\n" +
+            "Phone number: " + phoneNumber + "\n" +
+            "Birth date: " + birthDate + "\n";
+    }
 }

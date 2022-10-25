@@ -29,4 +29,12 @@ public class ContactManager {
         }
     }
 
+    public String toString() {
+        String temp = "";
+        for (int i = 0; i < contacts.size(); i++) {
+            temp += contacts.get(i) + "\n";
+        }
+        return temp;
+    }
+
 }

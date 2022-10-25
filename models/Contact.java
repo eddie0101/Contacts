@@ -12,6 +12,15 @@ public class Contact {
     private int age;
 
     public Contact(String name, String phoneNumber, String birthDate) throws ParseException {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("name cannot be null/blank");
+        }
+        if (phoneNumber == null || phoneNumber.isBlank()) {
+            throw new IllegalArgumentException("phone number cannot be null/blank");
+        }
+        if (phoneNumber.length() < 5) {
+            throw new IllegalArgumentException("phone number cannot have less than 5 digits");
+        }
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
@@ -35,10 +44,19 @@ public class Contact {
     }
 
     public void setName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("name cannot be null/blank");
+        }
         this.name = name;
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isBlank()) {
+            throw new IllegalArgumentException("phone number cannot be null/blank");
+        }
+        if (phoneNumber.length() < 5) {
+            throw new IllegalArgumentException("phone number cannot have less than 5 digits");
+        }
         this.phoneNumber = phoneNumber;
     }
 

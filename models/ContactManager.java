@@ -17,5 +17,16 @@ public class ContactManager {
         contacts.set(index, new Contact(contact));
     }
 
+    public void addContact(Contact contact) {
+        contacts.add(new Contact(contact));
+    }
+
+    public void removeContact(String contactName) {
+        for (int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getName().equals(contactName)) {
+                contacts.remove(i);
+            }
+        }
+    }
 
 }

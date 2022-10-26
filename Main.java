@@ -14,8 +14,11 @@ public class Main {
             loadContacts("contacts.txt");
             System.out.println("\n\nCONTACTS LOADED\n\n");
             System.out.println(contactManager);
+            manageContacts();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
+        } finally {
+            System.out.println("\nProcess complete\n");
         }
         
     }
@@ -33,6 +36,39 @@ public class Main {
             }
         }
 
+        scan.close();
+    }
+
+    public static void manageContacts() {
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nWould you like to \n\ta) add another contact\n\tb) remove a contact \n\tc) exit");
+            String input = scan.nextLine();
+            if (input.equals("a")) {
+                System.out.print("Name: ");
+                String name = scan.nextLine();
+                System.out.print("Phone number: ");
+                String phoneNumber = scan.nextLine();
+                System.out.println("Birth date: ");
+                String birthDate = scan.nextLine();
+                try {
+                    contactManager.addContact(new Contact(name, phoneNumber, birthDate));
+                } catch (ParseException e) {
+                    System.out.println(e.getMessage());
+                } finally {
+                    System.out.println("\n\nUPDATED CONTACTS\n\n");
+                }
+            }
+            if (input.equals("b")) {
+                System.out.println("\nWho would you like to remove?");
+                String name = scan.nextLine();
+                contactManager.removeContact(name);
+                System.out.println("\n\nUPDATED CONTACTS");
+            }
+            if (input.equals("c")) {
+                break;
+            }
+        }
         scan.close();
     }
 }

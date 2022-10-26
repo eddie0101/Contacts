@@ -51,6 +51,13 @@ public class Main {
                 String phoneNumber = scan.nextLine();
                 System.out.println("Birth date: ");
                 String birthDate = scan.nextLine();
+                if (name == null || name.isBlank() ||
+                    phoneNumber == null || phoneNumber.isBlank() || phoneNumber.length() < 5
+                    //birthDate == null || birthDate.isBlank()
+                ) {
+                    System.out.println("\nThe input you provided is not valid. Registration failed.");
+                    continue;
+                }
                 try {
                     contactManager.addContact(new Contact(name, phoneNumber, birthDate));
                 } catch (ParseException e) {
